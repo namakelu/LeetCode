@@ -1,3 +1,4 @@
+```python
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
@@ -44,3 +45,11 @@ class Solution:
 # pos is -1 or a valid index in the linked-list.
  
 # Follow up: Can you solve it using O(1) (i.e. constant) memory?
+
+```
+
+感想
+全く歯が立たず。解説を読みながら何度もテストを回してようやく完成。
+基本的な空要素や境界値などのケースは事前に想定したい。
+
+
