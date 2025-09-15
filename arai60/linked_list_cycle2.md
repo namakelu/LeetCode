@@ -1,5 +1,11 @@
-````py
+```py
 # Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+V# Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -7,8 +13,10 @@
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
         fast_pointer = head
         slow_pointer = head
+
         if (head is None):
             return None
 
@@ -17,13 +25,13 @@ class Solution:
             slow_pointer = slow_pointer.next
 
             if(fast_pointer == slow_pointer):
-                lists = []
-                node = head
-                while(True) :
-                    lists.append(node)
-                    if (len(lists) != len(set(lists))):
-                        return node
-                    node = node.next
+                slow_pointer = head
+
+                while(fast_pointer != slow_pointer):
+                    fast_pointer = fast_pointer.next
+                    slow_pointer = slow_pointer.next
+                return fast_pointer
+
         return None
 
 # Example 1:
@@ -48,9 +56,8 @@ class Solution:
 # -105 <= Node.val <= 105
 # pos is -1 or a valid index in the linked-list.
 
-````
+```
 
 感想
-答えを見ずに自力で考えてみたが処理速度が遅すぎる。
-テストケースの空集合を想定して早期リターンできたのはよい。
-解答をみて、素直に力技で解くのはよくないなと反省しました。
+2回目のループの始点ノードを見つける方法をコードにするのに手間取った。
+次は何も見ないで書けると思われる。
