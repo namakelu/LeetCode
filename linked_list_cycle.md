@@ -7,16 +7,13 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        fast_pointer = head
         slow_pointer = head
-
+        fast_pointer = head
         while(fast_pointer and fast_pointer.next):
-            fast_pointer = fast_pointer.next.next
             slow_pointer = slow_pointer.next
-
-            if(fast_pointer == slow_pointer):
+            fast_pointer = fast_pointer.next.next
+            if(slow_pointer == fast_pointer):
                 return True
-        
         return False
 
 # Example 1:
@@ -49,5 +46,5 @@ class Solution:
 ```
 
 感想
-全く歯が立たず。解説を読みながら何度もテストを回してようやく完成。
-基本的な空要素や境界値などのケースは事前に想定したい。
+何も見なくても書けるようになった。
+時間もそれほどかからないので大まかには理解できたと考える。
