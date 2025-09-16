@@ -9,10 +9,10 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         slow_pointer = head
         fast_pointer = head
-        while(fast_pointer and fast_pointer.next):
+        while fast_pointer is not None and fast_pointer.next is not None:
             slow_pointer = slow_pointer.next
             fast_pointer = fast_pointer.next.next
-            if(slow_pointer == fast_pointer):
+            if slow_pointer is fast_pointer:
                 return True
         return False
 
@@ -46,5 +46,11 @@ class Solution:
 ```
 
 感想
-何も見なくても書けるようになった。
-時間もそれほどかからないので大まかには理解できたと考える。
+レビューいただいた内容を反映した。（()の不使用、is Noneの使用。）
+解答例はAraiさんの動画とnanaeさんの下記のプルリクエストを参照した。
+youtube.com/watch?v=kOhQ5bfpq2I&feature=youtu.be
+https://github.com/nanae772/leetcode-arai60/pull/2/files
+
+他の方の解答もいろいろ見てみたが、色々な表記があって大変参考になった。
+コメントの指摘内容から計算量など見えている角度が全然違うなと思った。
+こういった点も学ばなければならない。
