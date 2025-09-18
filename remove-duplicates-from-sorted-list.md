@@ -6,6 +6,7 @@
 #         self.val = val
 #         self.next = next
 
+# step1
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         current_pointer = head
@@ -28,3 +29,24 @@ class Solution:
 https://github.com/t-ooka/leetcode/pull/10
 https://github.com/nanae772/leetcode-arai60/pull/4
 
+```py
+# step2
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        current_pointer = head
+        while current_pointer is not None and current_pointer.next is not None:
+            if current_pointer.val == current_pointer.next.val:
+                current_pointer.next = current_pointer.next.next
+            else:
+                 current_pointer = current_pointer.next
+        return head
+```
+感想
+全く見ずに同じコードがかけて正直驚いた。
+これが四則演算のようにコードがかけるという状態なのだろうか…。
