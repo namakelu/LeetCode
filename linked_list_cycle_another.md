@@ -57,3 +57,36 @@ https://github.com/nanae772/leetcode-arai60/blob/141-linked-list-cycle/141-linke
 こちらの方が、素直な解き方で汎用性が高いと感じた。
 フロイドのうさぎとかめのアルゴリズムは科学手品のように、面白いがあくまで導入のようなものらしい。
 
+#step2
+
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        current_pointer = head
+        visited_pointer_set = set()
+        while current_pointer is not None:
+            if current_pointer in visited_pointer_set:
+                return True
+            else:
+                visited_pointer_set.add(current_pointer)
+                current_pointer = current_pointer.next
+        return False
+```
+
+感想
+レビューいただいた内容を修正。
+メモリの使用量はList型を使用したため大きく増加していたらしい。
+Listは順序、Setは集合という認識。探索方法も線形探索とハッシュ探索で異なる。
+違いを理解してちゃんと使い分けができるようになりたい。
+
+Set型
+https://docs.python.org/ja/3/library/stdtypes.html#set
+
+List型
+https://docs.python.org/ja/3/library/stdtypes.html#list
