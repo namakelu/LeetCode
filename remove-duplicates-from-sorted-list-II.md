@@ -67,3 +67,35 @@ before_node.next = current_node.nextについて、whileの中で都度設定し
 こちらのほうが直感的にノードの移り変わりが理解しやすいが、計算量やメモリの使用量はおおいに増える。
 何も見ずに書くと、while文の条件にis not Noneの条件を書き忘れる。
 whileの中身を見て、前提条件がなにか逐一考えるクセをつけたい。
+
+#3回目
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy_node = ListNode(0)
+        dummy_node.next = head
+        before_node = dummy_node
+        current_node = head
+        while current_node is not None and current_node.next is not None:
+            if current_node.val == current_node.next.val:
+                duplicated_val = current_node.val
+                while current_node is not None and current_node.val == duplicated_val:
+                        current_node = current_node.next
+                before_node.next = current_node
+            else:
+                before_node = current_node
+                current_node = current_node.next
+        return dummy_node.next
+```
+大まかな流れは記憶していたが、[]のケースや[1,1]といった例示されていないケースが抜けており、後から何回か直すこととなった。まだあイメージをしっかりつかめていないかも。
+ while current_node is not None and current_node.val == duplicated_val:
+ この一行がさらっと出せるようになりたい。
+
+
+
+        
