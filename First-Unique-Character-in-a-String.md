@@ -47,3 +47,23 @@ collection型を使ったほうが早いらしいのだが、なんとなくimpo
 原理は一緒らしいのだが、どのような姿勢で臨むのがいいのだろうか。
         
 
+■２回め
+```py
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        count = {}
+
+        for char in s:
+            count[char] = count.get(char,0) + 1
+
+        for i,char in enumerate(s):
+            if count[char] == 1:
+                return i
+
+        return -1
+
+
+```
+番兵を使わない方法で書いた。こっちのほうが変数が少なくて読みやすい。
+やっていることはほとんど同じなので、時間計算量も空間計算量も変わらない。
