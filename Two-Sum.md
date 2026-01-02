@@ -35,3 +35,17 @@ class Solution:
 Pythonの辞書は、ハッシュテーブルを使って実装されているらしい。
 キーバリュー型としか思っていなかったが、確かに、ハッシュ化しているなら速度が上がりそうだ。
 衝突が起きても線形探索的な方法（オープンアドレッシング）で、解決できるらしい。
+
+#3回目
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for i,num in enumerate(nums):
+            if target - num in seen:
+                return [seen[target-num],i]
+            else:
+                seen[num] = i
+```
+3分程度で何も見ずに間違えることなく書くことができた。
+脳内の表現が自然とコードに表せたので大変良かった。
